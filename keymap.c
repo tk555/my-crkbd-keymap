@@ -154,9 +154,10 @@ void oled_render_keylog(void) {
     oled_write(keylog_str, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     oled_render_layer_state();
     oled_render_keylog();
+    return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
