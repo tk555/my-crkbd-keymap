@@ -17,9 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#define KC_VLFT LGUI(LCTL(KC_LEFT))
-#define KC_TSKV LGUI(KC_TAB)
-#define KC_VRGT LGUI(LCTL(KC_RIGHT))
+#define MY_VLEFT LGUI(LCTL(KC_LEFT))
+#define MY_TASKV LGUI(KC_TAB)
+#define MY_VRIGHT LGUI(LCTL(KC_RIGHT))
 enum layers{
     _DEFAULT,
     _LOWER,
@@ -71,20 +71,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,LCTL(KC_Q),   KC_MS_UP, KC_MS_BTN4,     KC_MS_BTN5, LCTL(KC_T),         KC_APP, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       KC_INS,LCTL(KC_Q), LCTL(KC_W), KC_ESC,   LCTL(KC_R), LCTL(KC_T),         KC_APP, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT,    KC_MS_BTN1, KC_MS_BTN2,        KC_PGUP, KC_F4, KC_F5, KC_F6, KC_F11, KC_F14,
+      KC_LCTL,LCTL(KC_A), LCTL(KC_S), LCTL(KC_D),   LCTL(KC_F), LCTL(KC_G),        KC_PGUP, KC_F4, KC_F5, KC_F6, KC_F11, KC_F14,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,LCTL(KC_Z), LCTL(KC_X),  LCTL(KC_C),    LCTL(KC_V), LCTL(KC_B),        KC_PGDN, KC_F1, KC_F2, KC_F3, KC_F12, KC_F13,
+      KC_LSFT,LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C),   LCTL(KC_V), LCTL(KC_B),        KC_PGDN, KC_F1, KC_F2, KC_F3, KC_F12, KC_F13,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______,  _______,  _______, MO_TO_DEFAULT, _______
+                                          _______, _______,  _______,     LSFT(LCTL(KC_ENT)), MO_TO_DEFAULT, _______
                                       //`--------------------------'  `--------------------------'
   ),
   [_RAISE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_RBRC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,KC_VLFT,  KC_TSKV,  KC_VRGT, _______,  _______,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_MINS,  KC_EQL,
+      _______,MY_VLEFT,  MY_TASKV,  MY_VRIGHT,_______,  _______,                KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_MINS,  KC_EQL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_F15,   KC_F16,   KC_F17,  KC_F18,   KC_F19,                      KC_BSPC,  KC_DEL, KC_HOME,  KC_END,  KC_GRV, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
